@@ -9,20 +9,23 @@
     <title>Videogame</title>
 </head>
 <body>
-    @include('components.header')
+    <div id="app">
+        @include('components.header')
 
-    @yield('content')
-
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
-    @include('components.footer')
+        @yield('content')
+    
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    
+        @include('components.footer')
+    </div>
+    
 </body>
 </html>
