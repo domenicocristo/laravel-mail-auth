@@ -23,12 +23,12 @@ class ApiController extends Controller
         $videogame->delete();
 
         $this->sendDeleteMail($videogame);
-
+        
         return json_encode($videogame);
     }
 
     private function sendDeleteMail($videogame) {
-        Mail::to('Auth::user()->email')->send(new VideogameDeleteMail($videogame));
+        Mail::to(Auth::user()->email)->send(new VideogameDeleteMail($videogame));
         Mail::to('admin@mysite.com')->send(new VideogameDeleteMail($videogame));
     }
 }
